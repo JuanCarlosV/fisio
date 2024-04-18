@@ -1,12 +1,12 @@
 package com.fisioapp.calendar.models;
 
-import lombok.AllArgsConstructor;
+import java.util.List;
+
 import lombok.Data;
 
 @Data
-@AllArgsConstructor
-public class Clinic {
-
+public class Physiotherapist {
     private long id;
     private String name;
+    private List<Appointment> appointments;
 }
