@@ -3,18 +3,19 @@ package com.fisioapp.calendar.controllers;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
 
 import com.fisioapp.calendar.models.Physiotherapist;
 import com.fisioapp.calendar.services.PhysiotherapistsService;
 
-@RestController
+@Controller
 @RequestMapping("/physiotherapists")
 public class PhysiotherapistsController {
 
@@ -27,8 +28,13 @@ public class PhysiotherapistsController {
     }
 
     @PostMapping("/{id}")
-    public void updatePhysiotherapist(@PathVariable long id, @RequestBody Physiotherapist physiotherapist) {
-        physiotherapistService.update(physiotherapist);
+    public String updatePhysiotherapist(@PathVariable long id, Model model) {
+        Physiotherapist physiotherapist = physiotherapistService.get(id);
+        model.addAttribute("physiotherapist", physiotherapist);
+
+        // trabajo en progreso..
+
+        return "physiotherapists/update";
     }
 
     @DeleteMapping("/{id}")

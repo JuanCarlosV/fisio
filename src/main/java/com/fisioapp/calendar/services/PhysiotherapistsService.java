@@ -13,6 +13,10 @@ public class PhysiotherapistsService {
 
     @Autowired
     private PhysiotherapistsMapper physiotherapistMapper;
+
+    public Physiotherapist get(long id) {
+        return physiotherapistMapper.get(id);
+    }
     
     public void create(Physiotherapist physiotherapist) {
         physiotherapistMapper.create(physiotherapist);

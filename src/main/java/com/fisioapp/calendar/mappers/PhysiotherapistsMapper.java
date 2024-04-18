@@ -24,4 +24,7 @@ public interface PhysiotherapistsMapper {
 
     @Select("SELECT * FROM physiotherapists")
     List<Physiotherapist> list();
+
+    @Select("SELECT * FROM physiotherapists WHERE id = #{id}")
+    Physiotherapist get(long id);
 }
