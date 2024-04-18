@@ -12,14 +12,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.fisioapp.calendar.models.Clinic;
-import com.fisioapp.calendar.services.ClinicService;
+import com.fisioapp.calendar.services.ClinicsService;
 
 @RestController
 @RequestMapping("/clinics")
-public class ClinicController {
+public class ClinicsController {
 
     @Autowired
-    private ClinicService clinicService;
+    private ClinicsService clinicService;
 
     @PostMapping
     public void addClinic(@RequestBody Clinic clinic) {

@@ -5,14 +5,14 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.fisioapp.calendar.mappers.ClinicMapper;
+import com.fisioapp.calendar.mappers.ClinicsMapper;
 import com.fisioapp.calendar.models.Clinic;
 
 @Service
-public class ClinicService {
+public class ClinicsService {
 
     @Autowired
-    private ClinicMapper clinicMapper;
+    private ClinicsMapper clinicMapper;
     
     public void create(Clinic clinic) {
         clinicMapper.create(clinic);

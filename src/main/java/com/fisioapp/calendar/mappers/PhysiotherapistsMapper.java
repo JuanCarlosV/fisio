@@ -11,7 +11,7 @@ import org.apache.ibatis.annotations.Update;
 import com.fisioapp.calendar.models.Physiotherapist;
 
 @Mapper
-public interface PhysiotherapistMapper {
+public interface PhysiotherapistsMapper {
 
     @Insert("INSERT INTO physiotherapists (id, name) VALUES (#{id}, #{name})")
     void create(Physiotherapist entity);

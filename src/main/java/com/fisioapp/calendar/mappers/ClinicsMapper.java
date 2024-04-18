@@ -11,7 +11,7 @@ import org.apache.ibatis.annotations.Update;
 import com.fisioapp.calendar.models.Clinic;
 
 @Mapper
-public interface ClinicMapper{
+public interface ClinicsMapper{
 
     @Insert("INSERT INTO clinic (id, name) VALUES (#{id}, #{name})")
     void create(Clinic entity);

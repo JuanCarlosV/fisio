@@ -12,14 +12,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.fisioapp.calendar.models.Physiotherapist;
-import com.fisioapp.calendar.services.PhysiotherapistService;
+import com.fisioapp.calendar.services.PhysiotherapistsService;
 
 @RestController
 @RequestMapping("/physiotherapists")
-public class PhysiotherapistController {
+public class PhysiotherapistsController {
 
     @Autowired
-    private PhysiotherapistService physiotherapistService;
+    private PhysiotherapistsService physiotherapistService;
 
     @PostMapping
     public void addPhysiotherapist(@RequestBody Physiotherapist physiotherapist) {
