@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="common/template :: head">
+</head>
+<body>
+    <header th:replace="common/template :: header"></header>
+
+    <div class="container">
+    
+    <div class="card bg-light">
+        <div class="card-header bg-dark text-white" th:text="${title}"></div>
+        <div class="card-body">
+    
+        <form th:action="@{/physios/create}" th:object="${physiotherapist}" method="post">
+            <div class="form-group row">
+                <label class="col-md-2" for="nombre">Nombre:</label> 
+                <input type="text" th:field="*{name}" class="form-control form-control-sm col-md-6" id="name" placeholder="Nombre"> 
+                    <small class="form-text text-danger" th:if="${#fields.hasErrors('name')}"
+                        th:errors="*{name}">
+                    </small>
+            </div>
+            <div class="card-footer bg-dark">
+                <input type="submit" class="btn btn-primary btn-sm" value="Guardar">
+            </div>
+            
+        </form>
+        </div>
+    </div>
+
+    </div>
+
+    <footer th:replace="common/template :: footer"></footer>
+
+</body>
+</html>
