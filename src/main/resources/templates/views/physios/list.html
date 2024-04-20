@@ -25,17 +25,17 @@
             <tbody>
                 <tr th:each="physio:${physiotherapists}">
                     <td th:text="${physio.name}"></td>
-                    <!-- <td>
-                        <a class="btn btn-success btn-sm" th:href="@{/views/alumnos/edit/} + ${a.id}"
+                    <td>
+                        <a class="btn btn-success btn-sm" th:href="@{/physios/update/} + ${physio.id}"
                             th:text="'Editar'" title="Editar Registro">
                         </a>
                     </td>	
                     <td>
-                        <a class="btn btn-danger btn-sm" th:href="@{/views/alumnos/delete/} + ${a.id}"
+                        <!-- <a class="btn btn-danger btn-sm" th:href="@{/views/alumnos/delete/} + ${a.id}"
                             th:text="'Eliminar'" title="Eliminar Alumno"
                             onclick="return confirm('¿Esta seguro de eliminar el alumno?');">
-                        </a>
-                    </td>					 -->
+                        </a> -->
+                    </td>
                 </tr>
             </tbody>
         </table>

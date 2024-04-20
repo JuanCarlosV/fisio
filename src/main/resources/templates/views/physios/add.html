@@ -12,6 +12,7 @@
         <div class="card-body">
     
         <form th:action="@{/physios/create}" th:object="${physiotherapist}" method="post">
+            <input type="hidden" th:field="*{id}">
             <div class="form-group row">
                 <label class="col-md-2" for="nombre">Nombre:</label> 
                 <input type="text" th:field="*{name}" class="form-control form-control-sm col-md-6" id="name" placeholder="Nombre"> 

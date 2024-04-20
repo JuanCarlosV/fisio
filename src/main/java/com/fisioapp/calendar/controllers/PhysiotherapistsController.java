@@ -1,6 +1,7 @@
 package com.fisioapp.calendar.controllers;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -36,18 +37,29 @@ public class PhysiotherapistsController {
             return "physios/create";
         }
 
-        physiotherapistService.create(physiotherapist);
+        if(physiotherapist.getId() != 0){
+            physiotherapistService.update(physiotherapist);
+        }
+        else{
+            physiotherapistService.create(physiotherapist);
+        }
         return "redirect:/physios/";
     }
 
-    @PostMapping("/{id}")
-    public String updatePhysiotherapist(@PathVariable long id, Model model) {
-        Physiotherapist physiotherapist = physiotherapistService.get(id);
-        model.addAttribute("physiotherapist", physiotherapist);
+    @GetMapping("/update/{id}")
+    public String updatePhysiotherapist(@PathVariable("id") Long id, Model model) {
 
-        // trabajo en progreso..
-
-        return "physios/update";
+        if(id != null) {
+            Optional<Physiotherapist> physiotherapist = Optional.ofNullable(physiotherapistService.get(id));
+            if(physiotherapist.isPresent()) {
+                model.addAttribute("physiotherapist", physiotherapist.get());
+            }
+        }
+        else{
+            return "redirect:/physios/";
+        }
+        
+        return "/views/physios/add";
     }
 
     @DeleteMapping("/{id}")
