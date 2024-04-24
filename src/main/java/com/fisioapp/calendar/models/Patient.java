@@ -15,6 +15,8 @@ public class Patient {
 	
 	private String gender;
 	
+	private LocalDate birthDate;
+	
 	/**
 	 * Estado civil
 	 */
