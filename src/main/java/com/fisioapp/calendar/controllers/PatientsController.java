@@ -13,9 +13,12 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.fisioapp.calendar.models.Patient;
 import com.fisioapp.calendar.services.PatientsService;
+
+import jakarta.validation.Valid;
 
 @Controller
 @RequestMapping("/patients")
@@ -28,16 +31,19 @@ public class PatientsController {
 	
 	@GetMapping("/add")
     public String addPhysiotherapist(Model model) {
-        model.addAttribute("physiotherapist", new Patient());
+        model.addAttribute("patient", new Patient());
         model.addAttribute("title", "Nuevo Paciente");
         return "/views/patients/add";
     }
 
     @PostMapping("/create")
-    public String createPhysiotherapist(@ModelAttribute Patient patient, BindingResult result) {
-        if (result.hasErrors()) {
-            return "patients/create";
-        }
+    public String create(@Valid @ModelAttribute Patient patient, BindingResult result,
+    		Model model, RedirectAttributes attribute) {
+    	if (result.hasErrors()) {
+			model.addAttribute("titulo", "Nuevo Paciente");
+			model.addAttribute("patient", patient);		
+			return "/views/patients/add";
+		}
 
         if(patient.getId() != 0){
         	patientsService.update(patient);
@@ -45,6 +51,7 @@ public class PatientsController {
         else{
         	patientsService.create(patient);
         }
+        attribute.addFlashAttribute("success", "Paciente guardado con exito!");
         return "redirect:/patients/";
     }
 

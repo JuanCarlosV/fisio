@@ -11,7 +11,7 @@
 	
 	<div class="container">
 		
-		<a class="btn btn-primary btn-sm" th:href="@{/views/patients/add}"
+		<a class="btn btn-primary btn-sm" th:href="@{/patients/add}"
 			th:text="'Crear nuevo'" title="Crear Nuevo Registro">
 		</a>
 		<br>
@@ -34,7 +34,7 @@
 					<td th:text="${patient.gender}"></td>
 					<td th:text="${patient.birthDate}"></td>
 					<td>
-						<a class="btn btn-success btn-sm" th:href="@{/views/alumnos/update/} + ${patient.id}"
+						<a class="btn btn-success btn-sm" th:href="@{/views/patients/update/} + ${patient.id}"
 							th:text="'Editar'" title="Editar Registro">
 						</a>
 					</td>	
