@@ -31,10 +31,9 @@
                         </a>
                     </td>	
                     <td>
-                        <!-- <a class="btn btn-danger btn-sm" th:href="@{/views/alumnos/delete/} + ${a.id}"
-                            th:text="'Eliminar'" title="Eliminar Alumno"
-                            onclick="return confirm('¿Esta seguro de eliminar el alumno?');">
-                        </a> -->
+                        <form th:action="@{/physios/delete/} + ${physio.id}" method="post">
+                            <input type="submit" value="Eliminar" class="btn btn-danger btn-sm" title="Eliminar Registro">
+                        </form>
                     </td>
                 </tr>
             </tbody>

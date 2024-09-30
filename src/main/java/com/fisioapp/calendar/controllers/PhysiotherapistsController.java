@@ -7,7 +7,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -62,9 +61,11 @@ public class PhysiotherapistsController {
         return "/views/physios/add";
     }
 
-    @DeleteMapping("/{id}")
-    public void deletePhysiotherapist(@PathVariable long id) {
+    @PostMapping("/delete/{id}")
+    public String deletePhysiotherapist(@PathVariable("id") Long id) {
         physiotherapistService.delete(id);
+
+        return "redirect:/physios/";
     }
 
     @GetMapping("/")
