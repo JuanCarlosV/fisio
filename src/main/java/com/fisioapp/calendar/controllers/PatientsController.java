@@ -33,7 +33,7 @@ public class PatientsController {
     public String addPhysiotherapist(Model model) {
         model.addAttribute("patient", new Patient());
         model.addAttribute("title", "Nuevo Paciente");
-        return "/views/patients/add";
+        return "views/patients/add";
     }
 
     @PostMapping("/create")
@@ -42,7 +42,7 @@ public class PatientsController {
     	if (result.hasErrors()) {
 			model.addAttribute("titulo", "Nuevo Paciente");
 			model.addAttribute("patient", patient);		
-			return "/views/patients/add";
+			return "views/patients/add";
 		}
 
         if(patient.getId() != 0){
@@ -68,7 +68,7 @@ public class PatientsController {
             return "redirect:/patients/";
         }
         
-        return "/views/patients/add";
+        return "views/patients/add";
     }
 
     @DeleteMapping("/{id}")
@@ -83,7 +83,7 @@ public class PatientsController {
 		model.addAttribute("titulo", "Listado de Pacientes");
 		model.addAttribute("patients", patients);
 		
-		return "/views/patients/list";
+		return "views/patients/list";
 	}
 	
 	

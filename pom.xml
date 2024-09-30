@@ -54,6 +54,7 @@
 	</dependencies>
 
 	<build>
+		<finalName>app</finalName> <!-- Set the final name of the JAR file -->
 		<plugins>
 			<plugin>
 				<groupId>org.springframework.boot</groupId>

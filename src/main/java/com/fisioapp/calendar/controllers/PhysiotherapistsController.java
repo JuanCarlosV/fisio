@@ -27,7 +27,7 @@ public class PhysiotherapistsController {
     public String addPhysiotherapist(Model model) {
         model.addAttribute("physiotherapist", new Physiotherapist());
         model.addAttribute("title", "Nuevo Alumno");
-        return "/views/physios/add";
+        return "views/physios/add";
     }
 
     @PostMapping("/create")
@@ -58,7 +58,7 @@ public class PhysiotherapistsController {
             return "redirect:/physios/";
         }
         
-        return "/views/physios/add";
+        return "views/physios/add";
     }
 
     @PostMapping("/delete/{id}")
@@ -72,6 +72,6 @@ public class PhysiotherapistsController {
     public String list(Model model) {
         List<Physiotherapist> physiotherapists = physiotherapistService.list();
         model.addAttribute("physiotherapists", physiotherapists);
-        return "/views/physios/list";
+        return "views/physios/list";
     }
 }
