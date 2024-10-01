@@ -14,7 +14,7 @@ class CalendarApplicationTests {
 
 	@Test
 	void testUserMapper() {
-		System.out.println(userMapper.now());
+		// System.out.println(userMapper.now());
 	}
 
 

@@ -1,6 +1,5 @@
 package com.fisioapp.calendar.mappers;
 
-import java.time.LocalDateTime;
 import java.util.List;
 
 import org.apache.ibatis.annotations.Delete;
@@ -26,8 +25,8 @@ public interface UsersMapper {
     @Select("SELECT * FROM users")
     List<User> list();
 
-    @Select("SELECT NOW()")
-    LocalDateTime now();
+    // @Select("SELECT NOW()")
+    // LocalDateTime now();
 
 //     @Insert("INSERT INTO city (name, state, country) VALUES(#{name}, #{state}, #{country})")
 //   @Options(useGeneratedKeys = true, keyProperty = "id")
